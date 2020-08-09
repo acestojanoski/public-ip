@@ -1,0 +1,25 @@
+{
+	"name": "public-ip",
+	"version": "1.0.0",
+	"description": "Find your public IP address",
+	"scripts": {
+		"build": "xo && gulp"
+	},
+	"author": "Aleksandar Stojanoski",
+	"license": "MIT",
+	"devDependencies": {
+		"gulp": "^4.0.2",
+		"gulp-clean-css": "^4.3.0",
+		"gulp-uglify": "^3.0.2",
+		"prettier": "^2.0.5",
+		"rimraf": "^3.0.2",
+		"xo": "^0.32.1"
+	},
+	"xo": {
+		"prettier": true,
+		"ignores": [
+			"ui",
+			"public"
+		]
+	}
+}
