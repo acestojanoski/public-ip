@@ -25,9 +25,9 @@ const cleanStyles = () =>
 
 const moveFiles = () =>
 	gulp
-		.src(`${uiDir}/assets/*`)
-		.pipe(gulp.dest(`${distDir}/assets`))
-		.pipe(gulp.src(`${uiDir}/*.html`))
+		.src([`${uiDir}/assets/**/*`, `${uiDir}/*.html`], {
+			base: uiDir,
+		})
 		.pipe(gulp.dest(distDir));
 
 exports.default = gulp.series(
