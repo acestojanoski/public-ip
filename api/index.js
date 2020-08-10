@@ -1,9 +1,4 @@
 module.exports = async (request, response) => {
-	response.setHeader(
-		'access-control-allow-origin',
-		process.env.ACCESS_ALLOW_ORIGIN || '*'
-	);
-
 	response.setHeader('content-type', 'text/plain');
 
 	const xForwardedFor =
