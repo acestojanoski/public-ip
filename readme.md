@@ -15,5 +15,5 @@ vercel dev
 ## Deploy
 
 ```sh
-$ vercel --prod
+vercel --prod
 ```

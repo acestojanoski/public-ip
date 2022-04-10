@@ -4,6 +4,7 @@
 }
 
 * {
+	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
 
@@ -40,7 +41,11 @@ button::after {
 	width: 1.4rem;
 	height: 0.2rem;
 	background: #ffffff;
+	-webkit-transform: skewX(50deg);
+	-ms-transform: skewX(50deg);
 	transform: skewX(50deg);
+	-webkit-transition: 0.4s linear;
+	-o-transition: 0.4s linear;
 	transition: 0.4s linear;
 }
 
@@ -68,15 +73,28 @@ button:hover::after {
 
 #container {
 	height: 100vh;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
 	flex-direction: column;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
 	justify-content: center;
 }
 
 #ip {
 	height: 6rem;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
 	justify-content: center;
 }
 
@@ -84,6 +102,7 @@ button:hover::after {
 	margin: 0;
 	color: #363636;
 	letter-spacing: 0.1rem;
+	font-weight: 400;
 }
 
 .spinner {
@@ -123,10 +142,19 @@ button:hover::after {
 	top: -6rem;
 	right: -6rem;
 	background-color: var(--blue);
+	-webkit-box-shadow: 0 0.1rem 0.4rem 0 var(--blue);
 	box-shadow: 0 0.1rem 0.4rem 0 var(--blue);
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-align: end;
+	-ms-flex-align: end;
 	align-items: flex-end;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
 	justify-content: center;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
 	transform: rotate(45deg);
 	padding-bottom: 1rem;
 }
