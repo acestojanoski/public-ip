@@ -1,17 +1,20 @@
-module.exports = async (request, response) => {
-	response.setHeader('content-type', 'text/plain');
+import microHandlers from 'micro-handlers'
 
-	const xForwardedFor =
-		request.headers['X-Forwarded-For'] ||
-		request.headers['x-forwarded-for'] ||
-		'';
+/** @type {import('@vercel/node').VercelApiHandler} */
+async function getIp(req, res) {
+	res.setHeader('cache-control', 'public, max-age=0, must-revalidate')
 
-	const ip = xForwardedFor.split(',')[0];
+	const xForwardedFor = req.headers['x-forwarded-for'] || ''
+	const ip = xForwardedFor.split(',')[0]
 
 	if (!ip) {
-		response.statusCode = 404;
-		return response.end('Not found.');
+		res.statusCode = 404
+		return res.end('Not Found', 'utf-8')
 	}
 
-	response.end(ip);
-};
+	res.end(ip, 'utf-8')
+}
+
+export default microHandlers({
+	GET: getIp,
+})

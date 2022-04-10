@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Public IP</title>
+	<meta name="og:title" content="Public IP" />
+	<meta name="description" content="Find you public IP address" />
+	<meta property="og:description" content="Find you public IP address" />
+	<meta property="og:url" content="https://publicip.vercel.app" />
+	<link href="./assets/favicon.ico" rel="icon" type="image/x-icon" />
+	<link type="text/css" rel="stylesheet" href="./main.css" />
+</head>
+
+<body>
+	<div id="container">
+		<a href="https://github.com/acestojanoski/public-ip" target="_blank">
+			<div class="ribbon">
+				<img src="./assets/cat.svg" alt="Github logo" width="25px" height="25px" />
+			</div>
+		</a>
+		<div id="ip">
+			<h1 class="d-none"></h1>
+			<div class="spinner d-none"></div>
+		</div>
+		<button id="refresh" type="button">Refresh</button>
+	</div>
+	<script src="./main.js" type="text/javascript"></script>
+</body>
+
+</html>
