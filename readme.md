@@ -3,15 +3,17 @@
 > Find your public IP address
 
 ## URL
+
 [`https://publicip.vercel.app`](https://publicip.vercel.app)
 
-## Requirements
+## Running locally
 
-- node.js
-- npm
-- vercel CLI
+```sh
+vercel dev
+```
 
 ## Deploy
+
 ```sh
 $ vercel --prod
 ```
