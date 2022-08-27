@@ -1,20 +1,31 @@
 import microHandlers from 'micro-handlers'
+import { send } from './_lib/utils'
 
 /** @type {import('@vercel/node').VercelApiHandler} */
-async function getIp(req, res) {
+async function getIpHandler(req, res) {
 	res.setHeader('cache-control', 'public, max-age=0, must-revalidate')
 
-	const xForwardedFor = req.headers['x-forwarded-for'] || ''
+	const { url, headers } = req
+
+	const xForwardedFor = headers['x-forwarded-for'] || ''
 	const ip = xForwardedFor.split(',')[0]
 
-	if (!ip) {
-		res.statusCode = 404
-		return res.end('Not Found', 'utf-8')
+	const acceptsJSON =
+		headers['accept'] === 'application/json' || url.split('.').pop() === 'json'
+
+	/** @type {import('./_lib/utils').SendOptions} */
+	const sendOptions = {
+		acceptsJSON,
 	}
 
-	res.end(ip, 'utf-8')
+	if (!ip) {
+		options.statusCode = 404
+		return send(res, 'Not Found', sendOptions)
+	}
+
+	send(res, acceptsJSON ? JSON.stringify({ ip }) : ip, sendOptions)
 }
 
 export default microHandlers({
-	GET: getIp,
+	GET: getIpHandler,
 })
